@@ -1,6 +1,6 @@
 -- ========================================
 -- ROBLOX GUI TEMPLATE
--- A customizable dark-themed GUI template
+-- my GUI template
 -- ========================================
 
 -- CONFIGURATION
@@ -31,9 +31,8 @@ local CONFIG = {
 	}
 }
 
--- ========================================
+
 -- SETUP SCREEN GUI
--- ========================================
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = CONFIG.GUI_NAME
 ScreenGui.ResetOnSpawn = false
@@ -46,9 +45,8 @@ if not ScreenGui.Parent then
 	ScreenGui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 end
 
--- ========================================
+
 -- AUTO-RESIZE FUNCTION
--- ========================================
 local Elements = {}
 
 local function UpdateGUISize()
@@ -67,9 +65,8 @@ local function UpdateGUISize()
 	Container.Size = UDim2.new(1, -10, 1, -(CONFIG.SPACING.HeaderHeight + CONFIG.SPACING.CreditsHeight + 10))
 end
 
--- ========================================
+
 -- MAIN FRAME
--- ========================================
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Size = UDim2.new(0, CONFIG.WINDOW_SIZE.Width, 0, CONFIG.WINDOW_SIZE.MinHeight)
@@ -79,9 +76,8 @@ MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 2
 MainFrame.Parent = ScreenGui
 
--- ========================================
+
 -- HEADER
--- ========================================
 local Header = Instance.new("Frame")
 Header.Name = "Header"
 Header.Size = UDim2.new(1, 0, 0, 25)
@@ -117,9 +113,8 @@ CloseButton.MouseButton1Click:Connect(function()
 	MainFrame.Visible = false
 end)
 
--- ========================================
+
 -- CONTAINER
--- ========================================
 local Container = Instance.new("Frame")
 Container.Name = "Container"
 Container.Position = UDim2.new(0, 5, 0, 30)
@@ -134,9 +129,8 @@ ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 ListLayout.Padding = UDim.new(0, CONFIG.SPACING.ElementSpacing)
 ListLayout.Parent = Container
 
--- ========================================
--- BUTTON 1 (CUSTOMIZE THIS)
--- ========================================
+
+-- BUTTON 
 local Button1 = Instance.new("TextButton")
 Button1.Name = "Button1"
 Button1.Size = UDim2.new(1, 0, 0, CONFIG.SPACING.ElementHeight)
@@ -157,9 +151,8 @@ Button1.MouseButton1Click:Connect(function()
 	print("Button 1 clicked")
 end)
 
--- ========================================
--- BUTTON 2 (CUSTOMIZE THIS)
--- ========================================
+
+-- BUTTON
 local Button2 = Instance.new("TextButton")
 Button2.Name = "Button2"
 Button2.Size = UDim2.new(1, 0, 0, CONFIG.SPACING.ElementHeight)
@@ -180,9 +173,8 @@ Button2.MouseButton1Click:Connect(function()
 	print("Button 2 clicked")
 end)
 
--- ========================================
--- TOGGLE (CUSTOMIZE THIS)
--- ========================================
+
+-- TOGGLE 
 local ToggleFrame = Instance.new("Frame")
 ToggleFrame.Name = "ToggleFrame"
 ToggleFrame.Size = UDim2.new(1, 0, 0, CONFIG.SPACING.ElementHeight)
@@ -224,9 +216,8 @@ ToggleButton.MouseButton1Click:Connect(function()
 	print("Toggle:", ToggleState)
 end)
 
--- ========================================
+
 -- CREDITS
--- ========================================
 local Credits = Instance.new("TextLabel")
 Credits.Name = "Credits"
 Credits.Position = UDim2.new(0, 0, 1, -15)
@@ -239,9 +230,8 @@ Credits.TextSize = 10
 Credits.Font = Enum.Font.Code
 Credits.Parent = MainFrame
 
--- ========================================
--- FLOATING TOGGLE BUTTON
--- ========================================
+
+-- FLOATING BUTTON
 local FloatingButton = Instance.new("TextButton")
 FloatingButton.Name = "FloatingButton"
 FloatingButton.Position = UDim2.new(1, -90, 0, 10)
@@ -264,9 +254,8 @@ FloatingButton.MouseButton1Click:Connect(function()
 	FloatingButton.Text = MainFrame.Visible and "Hide GUI" or "Show GUI"
 end)
 
--- ========================================
--- DRAGGING FUNCTIONALITY
--- ========================================
+
+-- DRAGGING FUNCTIONALITY THIS STILL HAVE BUGS HARD MAKING THIS HEHE
 local dragging
 local dragInput
 local dragStart
@@ -303,60 +292,5 @@ game:GetService("UserInputService").InputChanged:Connect(function(input)
 	end
 end)
 
--- ========================================
 -- FINALIZE GUI SIZE
--- ========================================
 UpdateGUISize()
-
--- ========================================
--- TEMPLATE USAGE INSTRUCTIONS
--- ========================================
---[[
-	HOW TO USE THIS TEMPLATE:
-	
-	1. CUSTOMIZE CONFIG TABLE:
-	   - Change GUI_NAME, WINDOW_TITLE, WINDOW_SIZE
-	   - Modify colors in COLORS table
-	   - Update CREDITS_TEXT
-	   - Adjust SPACING values if needed
-	
-	2. ADD YOUR FUNCTIONALITY:
-	   - Button1.MouseButton1Click - Add your code
-	   - Button2.MouseButton1Click - Add your code
-	   - ToggleButton.MouseButton1Click - Add your code
-	
-	3. ADD MORE ELEMENTS (GUI AUTO-RESIZES):
-	   To add a new button:
-	   
-	   local NewButton = Instance.new("TextButton")
-	   NewButton.Name = "NewButton"
-	   NewButton.Size = UDim2.new(1, 0, 0, CONFIG.SPACING.ElementHeight)
-	   NewButton.BackgroundColor3 = CONFIG.COLORS.ButtonBackground
-	   NewButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	   NewButton.BorderSizePixel = 1
-	   NewButton.Text = "My New Button"
-	   NewButton.TextColor3 = CONFIG.COLORS.TextColor
-	   NewButton.TextSize = 12
-	   NewButton.Font = Enum.Font.Code
-	   NewButton.LayoutOrder = 4  -- Increment this number
-	   NewButton.Parent = Container
-	   table.insert(Elements, NewButton)  -- IMPORTANT: Register element
-	   UpdateGUISize()  -- Update the GUI size
-	   
-	   NewButton.MouseButton1Click:Connect(function()
-	       -- Your code here
-	   end)
-	
-	4. THE GUI WILL AUTOMATICALLY:
-	   - Position all elements vertically
-	   - Resize height based on number of elements
-	   - Maintain proper spacing
-	   - Keep everything centered
-	
-	5. REMOVE ELEMENTS:
-	   To remove an element and resize:
-	   
-	   table.remove(Elements, index)
-	   element:Destroy()
-	   UpdateGUISize()
---]]
