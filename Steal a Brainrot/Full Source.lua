@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/NabaruBrainrot/Tempat-Penyimpanan-Roblox-Brainrot-/refs/heads/main/Ui%20Baru"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Shizo-S/Shizo-library-/refs/heads/main/Steal%20a%20Brainrot/GUI/source.lua"))()
 
 
 _G.FaDhenAddToggle("SPEED BOOSTER", {
