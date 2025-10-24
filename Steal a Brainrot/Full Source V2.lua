@@ -7,7 +7,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Shizo-S/Shizo-library
 _G.FaDhenAddToggle("Auto laser", {
     Callback = function(state)
         if state then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/NabaruBrainrot/Tempat-Penyimpanan-Roblox-Brainrot-/refs/heads/main/Laser%20Cape"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Shizo-S/Shizo-library-/refs/heads/main/Steal%20a%20Brainrot/Auto%20Laser.lua"))()
         end
     end
 })
